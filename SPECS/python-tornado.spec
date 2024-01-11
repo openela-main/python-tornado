@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.1.0
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -20,9 +20,13 @@ Source0:        https://github.com/tornadoweb/tornado/archive/v%{version}/%{srcn
 
 # Do not turn DeprecationWarning in tornado module into Exception
 # fixes FTBFS with Python 3.8
-Patch1:         Do-not-turn-DeprecationWarning-into-Exception.patch
+Patch:         Do-not-turn-DeprecationWarning-into-Exception.patch
 # Fix timeout failure in architectures such as ppc64le.
-Patch2:         Increase-timeout-in-test_request_timeout.patch
+Patch:         Increase-timeout-in-test_request_timeout.patch
+
+# CVE-2023-28370
+Patch: 0001-Add-test-for-open-redirect-issue.patch
+Patch: 0002-PATCH-web-Fix-an-open-redirect-in-StaticFileHandler.patch
 
 BuildRequires:  gcc
 BuildRequires:  python%{python3_pkgversion}-setuptools
@@ -68,6 +72,10 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
+* Tue Jul 25 2023 Sergio Correia <scorreia@redhat.com> - 6.1.0-9
+- Fix an open redirect in StaticFileHandler
+  Resolves: CVE-2023-28370
+
 * Wed Jun 15 2022 Sergio Correia <scorreia@redhat.com> - 6.1.0-8
 - Fix test failure in pcc64le
   Related: rhbz#2084553
