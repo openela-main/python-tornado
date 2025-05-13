@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -65,9 +65,13 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
-* Tue Nov 26 2024 Sergio Correia <scorreia@redhat.com> - 6.4.2-1
+* Thu Dec 05 2024 Sergio Correia <scorreia@redhat.com> - 6.4.2-2
+- Bump release to prevent clash with 9.5.z NVR
+  Resolves: RHEL-68667
+
+* Thu Dec 05 2024 Sergio Correia <scorreia@redhat.com> - 6.4.2-1
 - Update to 6.4.2
-  Resolves: RHEL-68663
+  Resolves: RHEL-68667
 
 * Tue Jul 25 2023 Sergio Correia <scorreia@redhat.com> - 6.1.0-9
 - Fix an open redirect in StaticFileHandler
