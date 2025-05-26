@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.4.2
-Release:        2%{?dist}
+Release:        2%{?dist}.2
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -20,6 +20,8 @@ Source0:        https://github.com/tornadoweb/tornado/archive/v%{version}/%{srcn
 
 # Fix timeout failure in architectures such as ppc64le.
 Patch:         Increase-timeout-in-test_request_timeout.patch
+# CVE-2025-47287 - Excessive logging caused by malformed multipart form data.
+Patch: 0002-httputil-Raise-errors-instead-of-logging-in-multipar.patch
 
 BuildRequires:  gcc
 BuildRequires:  python%{python3_pkgversion}-setuptools
@@ -65,6 +67,14 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
+* Wed May 21 2025 Sergio Correia <scorreia@redhat.com> - 6.4.2-2.2
+- tests: add ci_test.fmf + update gating.yaml
+  Related: RHEL-91999
+
+* Fri May 16 2025 Sergio Correia <scorreia@redhat.com> - 6.4.2-2.1
+- httputil: Raise errors instead of logging in  multipart/form-data parsing
+  Resolves: RHEL-91999
+
 * Thu Dec 05 2024 Sergio Correia <scorreia@redhat.com> - 6.4.2-2
 - Bump release to prevent clash with 9.5.z NVR
   Resolves: RHEL-68667
