@@ -1,6 +1,6 @@
-From b99df6cf3328f8e4aeb9db178df19b2411894b8c Mon Sep 17 00:00:00 2001
-From: Sergio Correia <scorreia@redhat.com>
-Date: Wed, 15 Jun 2022 21:10:52 -0300
+From 368af5db55e89f6bbd64995c62f1cbc7ba642dcf Mon Sep 17 00:00:00 2001
+From: rpm-build <rpm-build>
+Date: Tue, 7 Apr 2026 09:49:35 +0100
 Subject: [PATCH] Increase timeout in test_request_timeout
 
 Some architectures -- e.g. ppc64le -- need an increased request timeout.
@@ -13,13 +13,13 @@ timeout was increased for Windows.
  1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/tornado/test/simple_httpclient_test.py b/tornado/test/simple_httpclient_test.py
-index eadd4ed..333de50 100644
+index a40435e..935f50c 100644
 --- a/tornado/test/simple_httpclient_test.py
 +++ b/tornado/test/simple_httpclient_test.py
-@@ -293,9 +293,7 @@ class SimpleHTTPClientTestMixin(object):
+@@ -316,9 +316,7 @@ class SimpleHTTPClientTestMixin(AsyncTestCase):
+         yield gen.sleep(0.2)
  
-     @skipOnTravis
-     def test_request_timeout(self: typing.Any):
+     def test_request_timeout(self):
 -        timeout = 0.1
 -        if os.name == "nt":
 -            timeout = 0.5
@@ -28,5 +28,5 @@ index eadd4ed..333de50 100644
          with self.assertRaises(HTTPTimeoutError):
              self.fetch("/trigger?wake=false", request_timeout=timeout, raise_error=True)
 -- 
-2.35.1
+2.49.0
 

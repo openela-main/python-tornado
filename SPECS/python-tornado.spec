@@ -10,8 +10,8 @@ handle thousands of simultaneous standing connections, which means it is
 ideal for real-time web services.}
 
 Name:           python-%{srcname}
-Version:        6.4.2
-Release:        2%{?dist}.2
+Version:        6.5.5
+Release:        1%{?dist}.1
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -19,11 +19,10 @@ URL:            https://www.tornadoweb.org
 Source0:        https://github.com/tornadoweb/tornado/archive/v%{version}/%{srcname}-%{version}.tar.gz
 
 # Fix timeout failure in architectures such as ppc64le.
-Patch:         Increase-timeout-in-test_request_timeout.patch
-# CVE-2025-47287 - Excessive logging caused by malformed multipart form data.
-Patch: 0002-httputil-Raise-errors-instead-of-logging-in-multipar.patch
+Patch: 0001-Increase-timeout-in-test_request_timeout.patch
 
 BuildRequires:  gcc
+BuildRequires:  git-core
 BuildRequires:  python%{python3_pkgversion}-setuptools
 BuildRequires:  python%{python3_pkgversion}-devel
 
@@ -42,7 +41,7 @@ Summary:        Examples for %{name}
 This package contains some example applications.
 
 %prep
-%autosetup -p1 -n %{srcname}-%{version}
+%autosetup -S git -n %{srcname}-%{version}
 # Remove shebang from files
 %{__sed} -i.orig -e '/^#!\//, 1d' *py tornado/*.py tornado/*/*.py
 
@@ -67,6 +66,10 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
+* Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1.1
+  - Update to 6.5.5
+  Resolves: RHEL-160941
+
 * Wed May 21 2025 Sergio Correia <scorreia@redhat.com> - 6.4.2-2.2
 - tests: add ci_test.fmf + update gating.yaml
   Related: RHEL-91999
