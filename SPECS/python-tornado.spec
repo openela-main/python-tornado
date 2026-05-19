@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.5.5
-Release:        1%{?dist}.1
+Release:        1%{?dist}
 Summary:        Scalable, non-blocking web server and tools
 
 License:        Apache-2.0
@@ -72,13 +72,13 @@ export ASYNC_TEST_TIMEOUT=80
 %doc demos
 
 %changelog
-* Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1.1
+* Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1
 - Update to 6.5.5
-  Resolves: RHEL-160934
+  Resolves: RHEL-160935
 
-* Fri May 16 2025 Sergio Correia <scorreia@redhat.com> - 6.4.2-1.1
-- httputil: Raise errors instead of logging in  multipart/form-data parsing
-  Resolves: RHEL-91993
+* Tue Jun 17 2025 Anderson Toshiyuki Sasaki <ansasaki@redhat.com> - 6.4.2-2
+- httputil: Raise errors instead of logging in multipart/form-data parsing
+  Resolves: RHEL-91992
 
 * Thu Dec 05 2024 Sergio Correia <scorreia@redhat.com> - 6.4.2-1
 - Update to 6.4.2
