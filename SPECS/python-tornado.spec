@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.5.5
-Release:        1%{?dist}.1
+Release:        1%{?dist}
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -66,17 +66,13 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
-* Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1.1
-  - Update to 6.5.5
-  Resolves: RHEL-160941
+* Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1
+- Update to 6.5.5
+  Resolves: RHEL-160942
 
-* Wed May 21 2025 Sergio Correia <scorreia@redhat.com> - 6.4.2-2.2
-- tests: add ci_test.fmf + update gating.yaml
-  Related: RHEL-91999
-
-* Fri May 16 2025 Sergio Correia <scorreia@redhat.com> - 6.4.2-2.1
+* Tue Jun 17 2025 Anderson Toshiyuki Sasaki <ansasaki@redhat.com> - 6.4.2-3
 - httputil: Raise errors instead of logging in  multipart/form-data parsing
-  Resolves: RHEL-91999
+  Resolves: RHEL-91998
 
 * Thu Dec 05 2024 Sergio Correia <scorreia@redhat.com> - 6.4.2-2
 - Bump release to prevent clash with 9.5.z NVR
