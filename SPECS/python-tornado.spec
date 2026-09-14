@@ -10,8 +10,8 @@ handle thousands of simultaneous standing connections, which means it is
 ideal for real-time web services.}
 
 Name:           python-%{srcname}
-Version:        6.5.5
-Release:        1%{?dist}
+Version:        6.5.8
+Release:        0%{?dist}.1
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -66,6 +66,10 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
+* Wed Sep 09 2026 RHEL Packaging Agent <redhat-ymir-agent@redhat.com> - 6.5.8-0.1
+- Update to 6.5.8
+  Resolves: RHEL-247281
+
 * Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1
 - Update to 6.5.5
   Resolves: RHEL-160942
