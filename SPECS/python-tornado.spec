@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.5.10
-Release:        1%{?dist}.1
+Release:        1%{?dist}
 Summary:        Scalable, non-blocking web server and tools
 
 License:        Apache-2.0
@@ -72,13 +72,15 @@ export ASYNC_TEST_TIMEOUT=80
 %doc demos
 
 %changelog
-* Fri Oct 09 2026 Sergio Correia <scorreia@redhat.com> - 6.5.10-1.1
+* Wed Oct 14 2026 Sergio Correia <scorreia@redhat.com> - 6.5.10-1
 - Update to 6.5.10
-  Resolves: RHEL-274866
+  Resolves: RHEL-274867
 
-* Wed Sep 09 2026 RHEL Packaging Agent <redhat-ymir-agent@redhat.com> - 6.5.8-0.1
+* Thu Sep 24 2026 Sergio Correia <scorreia@redhat.com> - 6.5.8-1
 - Update to 6.5.8
-  Resolves: RHEL-247266
+  Resolves: RHEL-260667
+  Resolves: RHEL-247270
+  Resolves: RHEL-247602
 
 * Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1
 - Update to 6.5.5
