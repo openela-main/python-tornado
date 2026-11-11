@@ -11,7 +11,7 @@ ideal for real-time web services.}
 
 Name:           python-%{srcname}
 Version:        6.5.10
-Release:        1%{?dist}.1
+Release:        1%{?dist}
 Summary:        Scalable, non-blocking web server and tools
 
 License:        ASL 2.0
@@ -66,13 +66,15 @@ export ASYNC_TEST_TIMEOUT=10
 %doc demos
 
 %changelog
-* Fri Oct 09 2026 Sergio Correia <scorreia@redhat.com> - 6.5.10-1.1
+* Wed Oct 14 2026 Sergio Correia <scorreia@redhat.com> - 6.5.10-1
 - Update to 6.5.10
-  Resolves: RHEL-274870
+  Resolves: RHEL-274871
 
-* Wed Sep 09 2026 RHEL Packaging Agent <redhat-ymir-agent@redhat.com> - 6.5.8-0.1
+* Wed Sep 23 2026 Anderson Toshiyuki Sasaki <ansasaki@redhat.com> - 6.5.8-1
 - Update to 6.5.8
-  Resolves: RHEL-247281
+  Resolves: RHEL-247282
+  Resolves: RHEL-247613
+  Resolves: RHEL-260671
 
 * Tue Apr 07 2026 Sergio Correia <scorreia@redhat.com> - 6.5.5-1
 - Update to 6.5.5
